@@ -1,0 +1,78 @@
+<!-- <% include('../layouts/header.ejs') %>
+
+<h1>Admin Login</h1>
+
+<%
+if(typeof message !=='undefined'){
+%>
+<h3><%= message %></h3>
+<%
+}
+%>
+
+<form action="/admin" method="POST">
+
+    <input type="email" name="email" placeholder="Enter Email">
+    <br><br>
+    <input type="password" name="password" placeholder="Enter password">
+    <br><br> 
+    <input type="submit" value="Login">
+    <br><br>
+</form>
+
+<%- include('../layouts/footer.ejs') %> -->
+
+<% include('../layouts/header.ejs') %>
+
+<style>
+  /* Styles for the h1 tag */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /* Styles for the h3 tag */
+  h3 {
+    text-align: center;
+    color: #900;
+    margin-bottom: 20px;
+  }
+
+  /* Styles for the form */
+  form {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* Styles for form inputs */
+  input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 30%;
+    box-sizing: border-box;
+  }
+
+  /* Styles for the submit button */
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+</style>
+
+<h1>Admin Login</h1>
+
+<% if (typeof message !== 'undefined') { %>
+  <h3><%= message %></h3>
+<% } %>
+
+<form action="/admin" method="POST">
+  <input type="email" name="email" placeholder="Enter Email" required>
+  <br>
+  <input type="password" name="password" placeholder="Enter Password" required>
+  <br>
+  <input type="submit" value="Login">
+</form>
+
+<%- include('../layouts/footer.ejs') %>

@@ -1,0 +1,72 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+  /* Styles for the h1 tag */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+  }
+
+  /* Styles for the form */
+  form {
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  /* Styles for form inputs */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+  /* Styles for radio buttons */
+  label {
+    margin-right: 10px;
+  }
+
+  /* Styles for the submit button */
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Styles for the "Go to Dashboard" link */
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+  }
+</style>
+
+<h1>Edit User</h1>
+
+<form action="edit-user" method="POST">
+  <input type="text" name="name" placeholder="Enter Name" value="<%= user.name %>" required>
+  <br>
+  <input type="email" name="email" placeholder="Enter Email" value="<%= user.Email %>" required>
+  <br>
+  <input type="text" name="mobile" placeholder="Enter Mobile" value="<%= user.mobile %>" required>
+  <br>
+  <label>
+    Verified
+    <input type="radio" name="verify" value="1" <% if (user.is_verified === 1) { %> checked <% } %>>
+  </label>
+  <label>
+    Unverified
+    <input type="radio" name="verify" value="0" <% if (user.is_verified === 0) { %> checked <% } %>>
+  </label>
+  <br>
+  <input type="hidden" name="user_id" value="<%= user._id %>">
+  <input type="submit" value="updateUsers">
+</form>
+
+<a href="/admin" class="go-dashboard">Go to Dashboard</a>
+
+<%- include('../layouts/footer.ejs') %>

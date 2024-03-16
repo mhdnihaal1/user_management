@@ -1,0 +1,76 @@
+
+ 
+ <% include('../layouts/header.ejs') %>
+
+<style>
+  /* Styles for the h3 tag */
+  h1 {
+    text-align: center;
+    color:blue;
+    margin-top: 20px;
+  }
+
+  /* Styles for the table */
+  table {
+    width: 50%;
+    margin: 20px auto;
+    border-collapse: collapse;
+  }
+
+  /* Styles for table cells */
+  td {
+    padding: 10px;
+    border: 2px solid #ddd;
+  }
+
+  /* Styles for images within the table */
+  table img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Styles for the "Edit" and "Logout" links */
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+  }
+</style>
+
+<h1>Welcome to home, <%= user.name %></h1>
+
+<table>
+  <tr>
+    <td><img src="<%= user.image %>" alt="<%= user.image %>"></td>
+  </tr>
+  <!-- <tr>
+    <td>name</td>
+    <td><%= user.name %></td>
+  </tr>  -->
+  <tr>
+    <td>Email</td>
+    <td><%= user.Email %></td>
+  </tr>
+  <tr>
+    <td>Mobile</td>
+    <td><%= user.mobile %></td>
+  </tr>
+  <tr>
+    <td>Verified</td>
+    <td>
+      <% if (user.is_verified === 1) { %>
+        <p>True</p>
+      <% } else { %>
+        <p>False</p>
+      <% } %>
+    </td>
+  </tr>
+</table>
+
+<a href="/edit/<%= user._id %>">Edit</a>
+
+<a href="/logout">Logout</a>
+
+<% include('../layouts/footer.ejs') %>

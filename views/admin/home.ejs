@@ -1,0 +1,53 @@
+
+<% include ('../layouts/header.ejs') %>
+
+<style>
+  /* Your styles for the h1 tag */
+  h1 {
+    color: #0066cc; /* Set text color to blue */
+    font-size: 2em;
+    margin-left: 40%; /* Set font size to 2em (adjust as needed) */
+    /* Add more styles as needed */
+  }
+
+  /* Your styles for the table */
+  table {
+    width: 100%;
+    /* Add more styles as needed */
+  }
+
+  /* Your styles for the table cells */
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    /* Add more styles as needed */
+  }
+
+  
+
+  /* Add more styles for other elements as needed */
+</style>
+
+<h1 id="welcome">Welcome <%= admin.name %></h1>
+
+<a href="/admin/dashboard">Dashboard</a>
+
+<table>
+  <!-- Rows for Name, Email, and Mobile No -->
+  <tr>
+    <td>Name</td>
+    <td><%= admin.name %></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><%= admin.Email %></td>
+  </tr>
+  <tr>
+    <td>Mobile No</td>
+    <td><%= admin.mobile %></td>
+  </tr>
+</table>
+
+<a href="/admin/logout">Logout</a>
+
+<% include ('../layouts/footer.ejs') %>

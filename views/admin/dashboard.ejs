@@ -1,0 +1,181 @@
+<!-- <% include('../layouts/header.ejs')%>
+
+<h1 id="Dashboard" ,style="justify-content :center">Dashboard </h1>
+
+<form >
+    <input type="text" placeholder="search user name ,email and mobile" name="search">
+    <input type="submit" value="search">
+</form>
+
+<table width="50%">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>verified</th>
+        <th>Actions</th>
+    </tr>
+
+<%
+
+if(users.length > 0){
+    for(let i=0;i < users.length;i++){
+%>
+<tr>
+    <td><%= users[i].name%></td>
+    <td><%= users[i].Email%></td>
+    <td><%= users[i].mobile%></td>
+    <td><%
+    if(users[i].is_verified == 0){
+%>
+<p>Not Verified</p>
+<%
+    }else{
+%>
+<p>Verified</p>
+<%
+    }
+        %></td>
+
+        <td>
+            <a href="/admin/edit-user?id=<%= users[i]._id%>">Edit</a>
+            <a href="/admin/delete-user?id=<%= users[i]._id%>">Delete</a>
+        </td>
+
+</tr>
+<%
+    }
+
+}else{
+%>
+<tr>
+    <td colspan="5">Users Not Found</td>
+</tr>
+<%
+}
+
+%>
+
+</table>
+<br>
+<a href="/admin/home">Go To Home</a>
+
+<% include('../layouts/footer.ejs')%> -->
+
+
+<% include('../layouts/header.ejs')%>
+
+<style >
+
+    
+  /* Styles for the h1 tag */
+  h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  /* Styles for the form */
+  form {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Styles for the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+
+  /* Styles for table headers */
+  th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+  }
+
+  /* Styles for table data cells */
+  td {
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  /* Styles for the "Not Verified" and "Verified" paragraphs */
+  p {
+    margin: 0;
+    color: #900;
+    font-weight: bold;
+  }
+
+  /* Styles for the "Edit" and "Delete" links */
+  td a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff;
+  }
+
+  /* Styles for the "Users Not Found" message */
+  .not-found {
+    text-align: center;
+    color: #900;
+    font-weight: bold;
+  }
+
+  /* Styles for the "Go To Home" link */
+  a.go-to-home {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+  }
+</style>
+
+<h1 id="Dashboard">Dashboard</h1>
+
+<form>
+    <input type="text" placeholder="Search user name, email, and mobile" name="search">
+    <input type="submit" value="Search">
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Verified</th>
+        <th>Actions</th>
+        <th>Delete</th>
+    </tr>
+
+    <% if (users.length > 0) { 
+        for (let i = 0; i < users.length; i++) { %>
+            <tr>
+                <td><%= users[i].name %></td>
+                <td><%= users[i].Email %></td>
+                <td><%= users[i].mobile %></td>
+                <td>
+                    <% if (users[i].is_verified == 0) { %>
+                        <p>Not Verified</p>
+                    <% } else { %>
+                        <p>Verified</p>
+                    <% } %>
+                </td>
+                <td>
+                    <a href="/admin/edit-user?id=<%= users[i]._id %>">Edit</a>
+                    </td>
+                    <td>
+                    <a href="/admin/delete-user?id=<%= users[i]._id %>">Delete</a>
+                </td>
+            </tr>
+    <% } } else { %>
+        <tr>
+            <td colspan="5" class="not-found">Users Not Found</td>
+        </tr>
+    <% } %>
+</table>
+
+<a href="/admin/home" class="go-to-home">Go To Home</a>
+
+<% include('../layouts/footer.ejs')%>

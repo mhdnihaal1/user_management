@@ -1,0 +1,31 @@
+const isLogin = async (req, res, next) => {
+  try {
+    // console.log("111333333");
+    if (req.session.user_id) {
+      //  res.render('/home')
+    } else {
+      res.redirect("/");
+    }
+    next();
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+const isLogout = async (req, res, next) => {
+  try {
+    if (req.session.user_id) {
+      res.redirect("/home");
+  
+    }else{
+
+        next();
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+module.exports = {
+  isLogin,
+  isLogout,
+};
