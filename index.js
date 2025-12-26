@@ -1,7 +1,9 @@
 
 const mongoose=require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/user_managment_system');
-const path=require("path")
+// OOXrRIlRa4j8AuVf
+// mongoose.connect('mongodb+srv://nihalmuhaednihal_db_user:OOXrRIlRa4j8AuVf@cluster0.apbrfeo.mongodb.net/?user-managment=Cluster0');
+  mongoose.connect('mongodb+srv://nihalmuhaednihal_db_user:OOXrRIlRa4j8AuVf@cluster0.apbrfeo.mongodb.net/user_management?retryWrites=true&w=majority');
+ const path=require("path")
 const express=require('express')
 //const //serveStatic = require('serve-static')
 const app=express()
