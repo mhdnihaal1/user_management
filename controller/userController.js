@@ -1,4 +1,4 @@
-const User = require("../models/userModel");
+const User = require("../model/userModel");
 const bcrypt = require("bcrypt");
 const randomString = require("randomstring");
 
